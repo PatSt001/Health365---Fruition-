@@ -1,3 +1,7 @@
 name = "health365---fruition"
 main = "worker.js"
 compatibility_date = "2026-09-07"
+
+[[routes]]
+pattern = "health365.online"
+custom_domain = true
