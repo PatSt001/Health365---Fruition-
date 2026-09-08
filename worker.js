@@ -98,6 +98,22 @@ async function fetchAndApply(request) {
     return response;
   }
 
+  /*
+   * HOMEPAGE ROUTING FIX
+   *
+   * The empty slug represents the Health365 homepage.
+   * Instead of redirecting "/" to the Notion page ID,
+   * internally resolve "/" to the Notion page ID and
+   * keep the public URL as https://health365.online/
+   *
+   * This prevents the:
+   * / -> 301 -> Notion Page ID -> 404
+   * chain that was affecting Google inspection.
+   */
+  if (url.pathname === "/" && SLUG_TO_PAGE[""]) {
+    url.pathname = "/" + SLUG_TO_PAGE[""];
+  }
+
   let response;
 
   if (url.pathname.startsWith("/app") && url.pathname.endsWith("js")) {
