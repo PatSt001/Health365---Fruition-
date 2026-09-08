@@ -104,14 +104,9 @@ async function fetchAndApply(request) {
       await fetch(
 
         url.toString(),
-
+        
         {
-          body:
-            url.pathname.startsWith(
-              "/api/v3/getPublicPageData"
-            )
-              ? null
-              : request.body,
+          : request.body,
 
           headers: {
 
