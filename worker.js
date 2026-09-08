@@ -16,6 +16,7 @@ async function fetchAndApply(request) {
    * Notion remains the internal origin.
    */
   url.hostname = "www.notion.so";
+  let response;
 
 
   /* ----------------------------------------------------------
